@@ -18,12 +18,15 @@ public:
     }
 
     void deleteElement() {
-        cout<<arr[size]<<"poped";
-        size--;
+        if(size==0)
+        cout<<"stack empty";
+        else{
+        cout<<arr[size-1]<<" poped"<<endl;
+        size--;}
     }
 
     void searchElement() {
-        cout<<arr[size];
+        cout<<arr[size-1];
          }
     void print(){
         for(int i=0;i<size;i++){
@@ -39,8 +42,8 @@ int main() {
 	while(1){
 	cout << "Select Operation To Perform on linked list" << endl;
 	cout << "1.push" << endl;
-	cout << "2.pop" << endl;
-	cout << "3.peak" << endl;
+	cout << "2.top" << endl;
+	cout << "3.pop" << endl;
 	cout << "4. Exit" << endl;
 	cin >> operation;
 	switch(operation){
@@ -53,7 +56,7 @@ int main() {
 		break;
 		case 2: 
 		list.searchElement();
-		list.print();
+		
 		cout << endl;
 		break;
 		case 3:
