@@ -1,19 +1,19 @@
 #include <iostream>
-
-using namespace std;
+ using namespace std;
 const int MAX_SIZE = 100;
+template < typename T >
 class Array {
-    private: int arr[MAX_SIZE];
+    private: T arr[MAX_SIZE];
     int size;
     public: Array(): size(0) {}
 
-    void insert(int value) {
+    void insert(T value) {
         if (size < MAX_SIZE) {
             arr[size++] = value;
         }
     }
 
-    void deleteElement(int value) {
+    void deleteElement(T value) {
         for (int i = 0; i < size; ++i) {
             if (arr[i] == value) {
                 for (int j = i; j < size - 1; ++j) {
@@ -24,12 +24,16 @@ class Array {
         }
     }
 
-    void searchElement(int value) {
-        for (int i = 0; i < size; ++i) {
+    void searchElement(T value) {
+        int i;
+        for (i = 0; i < size; ++i) {
             if (arr[i] == value) {
                 cout << "Element found at index:" << i << endl;
+                break;
             }
         }
+        if(i==size)
+        cout<<"Element not present"<<endl;
     }
     void print() {
         for (int i = 0; i < size; i++) {
@@ -39,9 +43,9 @@ class Array {
 };
 
 int main() {
-    Array list;
+    Array<char> list;
     int operation;
-    int data;
+    char data;
     while (1) {
         cout << "Select Operation To Perform on Array" << endl;
         cout << "1.Insert" << endl;
